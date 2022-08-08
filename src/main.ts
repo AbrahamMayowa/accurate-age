@@ -1,9 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AgeModule } from './age/age.module';
-import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException  } from '@nestjs/common';
+import {
+  PipeTransform,
+  Injectable,
+  ArgumentMetadata,
+  BadRequestException,
+} from '@nestjs/common';
 import { validate } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
-
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
@@ -27,15 +32,21 @@ export class ValidationPipe implements PipeTransform<any> {
 }
 
 async function bootstrap() {
+  
   const app = await NestFactory.create(AgeModule);
   app.enableCors();
   app.setGlobalPrefix('api/v1');
-  app.useGlobalPipes(
-    new ValidationPipe(),
-  );
+  app.useGlobalPipes(new ValidationPipe());
+
+  const config = new DocumentBuilder()
+    .setTitle('Accurate Age')
+    .setDescription('Calculate the accurate age')
+    .setVersion('1.0')
+    .addTag('age')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('/', app, document);
+  
   await app.listen(3000);
 }
 bootstrap();
-
-
-

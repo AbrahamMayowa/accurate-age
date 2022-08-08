@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
 
 @Injectable()
 export class AgeService {
@@ -10,7 +10,7 @@ export class AgeService {
     return {
       years: age.years,
       months: age.months,
-      days: age.days.toFixed(0)
-    }
+      days: age.days.toFixed(0),
+    };
   }
 }
