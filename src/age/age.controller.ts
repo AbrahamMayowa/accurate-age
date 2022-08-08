@@ -2,7 +2,7 @@ import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 import { AgeService } from './age.service';
 import { GetAgeDto } from './dto/getAge.dto';
 import { ThrottlerGuard } from '@nestjs/throttler';
-import { GetResponse, ErrorResponse } from './interface';
+import { GetResponse, ErrorResponse, ResponseLimit } from './interface';
 import {ApiResponse } from '@nestjs/swagger';
 
 @UseGuards(ThrottlerGuard)
@@ -10,6 +10,7 @@ import {ApiResponse } from '@nestjs/swagger';
 export class AgeController {
   constructor(private readonly ageService: AgeService) {}
 
+  @ApiResponse({ status: 429, type: ResponseLimit})
   @ApiResponse({ status: 200, type: GetResponse})
   @ApiResponse({ status: 400, type: ErrorResponse})
   @Get()

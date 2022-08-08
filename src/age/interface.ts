@@ -21,3 +21,8 @@ export class ErrorResponse {
   @ApiProperty({ type: String })
   error: string;
 }
+
+export class ResponseLimit {
+  statusCode: 429;
+  message: string;
+}
