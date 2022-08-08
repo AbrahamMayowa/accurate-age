@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AgeController } from './age.controller';
 import { AgeService } from './age.service';
-import { GetAgeDto } from './dto/getAge.dto';
 import { ThrottlerModule } from '@nestjs/throttler';
 
 describe('AgeController', () => {
@@ -28,6 +27,9 @@ describe('AgeController', () => {
       const ageDto = {
         dateOfBirth: '2000-08-08',
       };
+      ageController.getAge(ageDto)
+      ageController.getAge(ageDto)
+      ageController.getAge(ageDto)
       expect(ageController.getAge(ageDto)).toHaveProperty('years', 20);
     });
   });

@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AgeModule } from './age/age.module';
+import { AgeModule } from './app.module';
 import {
   PipeTransform,
   Injectable,
@@ -9,6 +9,7 @@ import {
 import { validate } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
 
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
@@ -47,6 +48,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/', app, document);
   
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
 }
 bootstrap();
