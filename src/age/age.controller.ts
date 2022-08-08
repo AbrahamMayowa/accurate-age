@@ -14,6 +14,6 @@ export class AgeController {
   @ApiResponse({ status: 400, type: ErrorResponse})
   @Get()
   getAge(@Query() getAgeDto: GetAgeDto) {
-    return this.ageService.getAge(getAgeDto.dateOfBirth);
+    return this.ageService.getAge(getAgeDto.dob);
   }
 }

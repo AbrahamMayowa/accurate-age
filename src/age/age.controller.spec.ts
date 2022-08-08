@@ -25,11 +25,8 @@ describe('AgeController', () => {
     it('should return accurate age', () => {
       jest.useFakeTimers().setSystemTime(new Date('2021-06-08'));
       const ageDto = {
-        dateOfBirth: '2000-08-08',
+        dob: '2000-08-08',
       };
-      ageController.getAge(ageDto)
-      ageController.getAge(ageDto)
-      ageController.getAge(ageDto)
       expect(ageController.getAge(ageDto)).toHaveProperty('years', 20);
     });
   });
