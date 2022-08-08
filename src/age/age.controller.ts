@@ -6,7 +6,7 @@ import { GetResponse, ErrorResponse } from './interface';
 import {ApiResponse } from '@nestjs/swagger';
 
 @UseGuards(ThrottlerGuard)
-@Controller('/age')
+@Controller('/howold')
 export class AgeController {
   constructor(private readonly ageService: AgeService) {}
 
