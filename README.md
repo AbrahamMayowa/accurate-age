@@ -1,5 +1,7 @@
 # Backend Assessment
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d0079804b4d4ee094cead7bb0f2285c)](https://app.codacy.com/gh/AbrahamMayowa/accurate-age?utm_source=github.com&utm_medium=referral&utm_content=AbrahamMayowa/accurate-age&utm_campaign=Badge_Grade_Settings)
+
 Build and deploy a very simple API that does the following
 
 1.  Calculate and return the age of a person, given their date of birth (dob) as query parameters to `GET /howold`
