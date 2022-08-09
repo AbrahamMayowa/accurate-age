@@ -4,7 +4,6 @@
 Accurate Age is a simple api for calculating the date of birth of a user. The user is expected to provide their date of birth in a valid timestamp, and the system will generate an accurate age (year, month and days) based on the date provided.
 
 
-
 ## Implementation
 
 On the basis of the simplicity of the project, it's logically to go with monolithic architecure. The API is built using the opinionated nestjs framework. The application is structured in a way to scale as more people join the application.
@@ -36,8 +35,6 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 
-
-```
 
 ## Test
 

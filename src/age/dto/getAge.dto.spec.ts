@@ -3,7 +3,7 @@ import { ArgumentMetadata } from '@nestjs/common';
 import { ValidationDob } from './customePipe';
 
 describe('accept only valid timestamp', () => {
-  let target = new ValidationDob();
+  const target = new ValidationDob();
   const metadata: ArgumentMetadata = {
     type: 'query',
     metatype: GetAgeDto,

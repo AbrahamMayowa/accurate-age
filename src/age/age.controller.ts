@@ -4,7 +4,6 @@ import { GetAgeDto } from './dto/getAge.dto';
 import { ThrottlerGuard } from '@nestjs/throttler';
 import { GetResponse, ErrorResponse, ResponseLimit } from './interface';
 import { ApiResponse } from '@nestjs/swagger';
-import { DateTime } from 'luxon';
 import { ValidationDob } from './dto/customePipe';
 
 @UseGuards(ThrottlerGuard)
