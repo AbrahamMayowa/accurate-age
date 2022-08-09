@@ -5,7 +5,8 @@ import { DateTime } from 'luxon';
 export class AgeService {
   getAge(dateOfBirth: string) {
     const now = DateTime.now();
-    const start = DateTime.fromISO(dateOfBirth);
+    const n = new Date(parseInt(dateOfBirth))
+    const start = DateTime.fromISO(n.toISOString());
     const age = now.diff(start, ['years', 'months', 'days']).toObject();
     return {
       years: age.years,
