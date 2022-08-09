@@ -4,6 +4,8 @@ import { GetAgeDto } from './dto/getAge.dto';
 import { ThrottlerGuard } from '@nestjs/throttler';
 import { GetResponse, ErrorResponse, ResponseLimit } from './interface';
 import {ApiResponse } from '@nestjs/swagger';
+import { DateTime } from 'luxon';
+import {ValidationDob} from './dto/customePipe';
 
 @UseGuards(ThrottlerGuard)
 @Controller('/howold')
@@ -14,7 +16,7 @@ export class AgeController {
   @ApiResponse({ status: 200, type: GetResponse})
   @ApiResponse({ status: 400, type: ErrorResponse})
   @Get()
-  getAge(@Query() getAgeDto: GetAgeDto) {
+  getAge(@Query(new ValidationDob()) getAgeDto: GetAgeDto) {
     return this.ageService.getAge(getAgeDto.dob);
   }
 }
