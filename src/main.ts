@@ -2,11 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AgeModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
-
-
-
 async function bootstrap() {
-  
   const app = await NestFactory.create(AgeModule);
   app.enableCors();
   app.setGlobalPrefix('/');
@@ -19,7 +15,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api', app, document);
-  
+
   await app.listen(process.env.PORT);
 }
 bootstrap();

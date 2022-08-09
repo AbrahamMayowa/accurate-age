@@ -18,10 +18,9 @@ import configuration from './config/configuration';
       useFactory: (config: ConfigService) => ({
         ttl: config.get('throller_ttl'),
         limit: config.get('throller_limit'),
-        storage: new ThrottlerStorageRedisService(config.get('redis_url'))
+        storage: new ThrottlerStorageRedisService(config.get('redis_url')),
       }),
     }),
-    
   ],
   controllers: [AgeController],
   providers: [AgeService],
